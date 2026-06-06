@@ -10,13 +10,18 @@ cart.forEach((cartItem) => {
     let matchingProduct;
 
     products.forEach((product) => {
-        if (product.id == productId) {
+        if (product.id == productId) {   
             matchingProduct = product;
         }
     });
 
+    if (!matchingProduct) {
+        console.log('Not Found:', productId);
+        return;
+    }
+
   cartSummaryHTML += ` <div class="cart-item-container
-   js-cart-item-container-${matchingProduct.id}">
+   js-cart-item-container-${matchingProduct.id}">            
         <div class="delivery-date">
         Delivery date: Tuesday, June 21
         </div>
